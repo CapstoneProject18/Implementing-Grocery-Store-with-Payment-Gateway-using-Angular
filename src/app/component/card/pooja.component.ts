@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
 @Component({
-  templateUrl: 'cosmetics.component.html'
+  templateUrl: 'pooja.component.html'
 })
 export class CardsComponent {}
