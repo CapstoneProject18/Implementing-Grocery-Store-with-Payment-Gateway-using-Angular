@@ -1,0 +1,39 @@
+<div class="container-fluid" ng-init="init()">
+    <div class="content">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Order</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="order in orderList">
+                      <td>{{ order.id }}</td>
+                      <td>{{ order.order_date }}</td>
+                      <td>Rs.{{ order.total }}</td>
+                      <td>{{ order.order_status }}</td>
+                      <td>
+                        <div class="dropdown" >
+                          <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Action
+                          <i class="caret"></i></a>
+                          <ul class="dropdown-menu">
+                            <li><a ng-click="trackPackage(order)">Track</a></li>
+                            <li><a ng-click="orderDetails(order)">Details</a></li>
+                          </ul>
+                        </div>
+                      </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+
+        </div>
+        <!-- /.table-responsive -->
+    </div>
+</div>
