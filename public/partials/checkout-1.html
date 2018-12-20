@@ -1,0 +1,91 @@
+<div class="container-fluid" ng-init="init()">
+  <div class="row">
+
+      <div class="col-md-9 clearfix" id="checkout">
+
+          <div class="box">
+
+                  <ul class="nav nav-pills nav-justified">
+                      <li class="active"><a href="checkout-address">Address</a>
+                      </li>
+                      <li class="disabled"><a href="#">Delivery Method</a>
+                      </li>
+                      <li class="disabled"><a href="#">Payment Method</a>
+                      </li>
+                      <li class="disabled"><a href="#">Order Review</a>
+                      </li>
+                  </ul>
+
+                  <div class="content large-padded-row">
+                     <div class="padded-row">
+                       <div>
+                         <legend>Stored Addresses</legend>
+                         <ul ng-repeat="row in addresses" style="list-style:none;">
+                           <li class="btn btn-default"><a ng-click="selectExistingAddress(row)">{{ row.address }}</a></li>
+                         </ul>
+                       </div>
+                       <legend>Search Address</legend>
+                       <input type="text"
+                              class="form-control"
+                              placeholder="Enter Address"
+                              typeahead="power"
+                              ng-model="address"
+                              ng-change="addressAutoComplete()"/>
+                       <div>
+                         <ul ng-repeat="address in predictions" style="list-style:none;">
+                           <li class="btn"><a ng-click="selectAddress(address)">{{ address.description }}</a></li>
+                         </ul>
+                       </div>
+                     </div>
+                  </div>
+
+                  <div class="box-footer">
+                      <div class="pull-left">
+                          <a href="cart" class="btn btn-default">Back to basket</a>
+                      </div>
+                      <div class="pull-right">
+                          <a ng-click="toDelivery()" class="btn btn-default">Continue to Delivery Method</a>
+                      </div>
+                  </div>
+          </div>
+          <!-- /.box -->
+
+
+      </div>
+      <!-- /.col-md-9 -->
+
+      <div class="col-md-3">
+        <div id="order-summary" class="box">
+          <div class="box-header">
+              <h3>Order summary</h3>
+          </div>
+          <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+
+          <div class="table-responsive">
+              <table class="table">
+                  <tbody>
+                      <tr>
+                          <td>Order subtotal</td>
+                          <th>{{ cartInfo.total | currency }}</th>
+                      </tr>
+                      <tr>
+                          <td>Shipping and handling</td>
+                          <th>Rs0</th>
+                      </tr>
+                      <tr>
+                          <td>Tax</td>
+                          <th>Rs0</th>
+                      </tr>
+                      <tr class="total">
+                          <td>Total</td>
+                          <th>{{ cartInfo.total | currency }}</th>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-3 -->
+
+  </div>
+</div>
