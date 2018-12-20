@@ -1,0 +1,89 @@
+<div class="container-fluid" ng-init="init()">
+  <div name="products" class="col-md-12 table-responsive">
+    <legend>Products</legend>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>price</th>
+          <th>description</th>
+          <th>weight</th>
+          <th>quantity</th>
+          <th>category_id</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="product in products">
+          <td>{{ product.id }}</td>
+          <td><input class="form-control" ng-model="product.name"></input></td>
+          <td><input class="form-control" ng-model="product.price"></input></td>
+          <td><input class="form-control" ng-model="product.description"></input></td>
+          <td><input class="form-control" ng-model="product.weight"></input></td>
+          <td><input class="form-control" ng-model="product.quantity"></input></td>
+          <td><input class="form-control" ng-model="product.category_id"></input></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-center">
+    <a class="btn btn-default" ng-click="putProducts">Update</a>
+  </div>
+
+  <div name="accounts" class="col-md-12 table-responsive">
+    <legend>Accounts</legend>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>email</th>
+          <th>created on</th>
+          <th>admin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="account in accounts">
+          <td>{{ account.id }}</td>
+          <td><input class="form-control" ng-model="account.name"></input></td>
+          <td><input class="form-control" ng-model="account.email"></input></td>
+          <td>{{ account.created_at }}</td>
+          <td><input class="form-control" ng-model="account.admin"></input></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-center">
+    <a class="btn btn-default" ng-click="putUsers()">Update</a>
+  </div>
+
+  <div name="addresses" class="col-md-12 table-responsive">
+    <legend>Addresses</legend>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>street line</th>
+          <th>city</th>
+          <th>state</th>
+          <th>zip</th>
+          <th>country</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="address in addresses">
+          <td>{{ address.id }}</td>
+          <td>{{ address.street_line }}</td>
+          <td>{{ address.city }}</td>
+          <td>{{ address.state }}</td>
+          <td>{{ address.zip }}</td>
+          <td>{{ address.country }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
