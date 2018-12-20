@@ -1,0 +1,57 @@
+{
+  "name": "wandering-sun",
+  "version": "1.0.0",
+  "description": "My app description",
+  "scripts": {
+    "deploy": "npm test && git push heroku master",
+    "migrate": "knex migrate:rollback && knex migrate:latest && knex seed:run",
+    "start": "node server.js",
+    "test": "npm run test:server && npm run test:client",
+    "test:client": "karma start --single-run",
+    "test:server": "mocha --recursive"
+  },
+  "author": "Christopher Kang",
+  "license": "ISC",
+  "dependencies": {
+    "@google/maps": "^0.4.5",
+    "angular-local-storage": "^0.7.1",
+    "angular-payments": "^1.0.7",
+    "async": "^1.5.2",
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.15.1",
+    "bookshelf": "^0.9.5",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.1",
+    "db-migrate": "^0.11.4",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "express-validator": "^2.20.4",
+    "faker": "^4.1.0",
+    "jsonwebtoken": "^5.7.0",
+    "kalamata": "^0.1.4",
+    "knex": "^0.10.0",
+    "moment": "^2.12.0",
+    "morgan": "^1.7.0",
+    "mysql": "^2.10.2",
+    "nodemailer": "^2.3.0",
+    "request": "^2.69.0",
+    "stripe": "^5.3.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "karma": "^0.13.22",
+    "karma-chai": "^0.1.0",
+    "karma-coverage": "^0.5.5",
+    "karma-mocha": "^1.0.1",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.7",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0",
+    "supertest": "^1.2.0"
+  },
+  "engines": {
+    "node": "6.1.0"
+  }
+}
