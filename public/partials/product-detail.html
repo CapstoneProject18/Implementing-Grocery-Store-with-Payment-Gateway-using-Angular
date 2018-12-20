@@ -1,0 +1,30 @@
+<div class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-xs-9 col-sm-6 col-lg-5">
+          <div class="img-thumbnail">
+            <div class="image">
+                <img ng-src="{{selectedProduct.image}}" alt="picture" class="img-responsive imageSize">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="box" id="details">
+        <p>{{ selectedProduct.description }}</p>
+          <h4>Product details</h4>
+          <ul>
+              <li>Name: {{ selectedProduct.name }}</li>
+              <li>Price: {{ selectedProduct.price }}</li>
+              <li>Weight: {{ selectedProduct.weight }} gms</li>
+              <li>In Stock: {{ selectedProduct.quantity }}</li>
+          </ul>
+      </div>
+      <div ng-if="isAuthenticated()">
+        <a ng-click="addToCart(selectedProduct.id)" class="btn btn-default">Add to cart</a>
+      </div>
+    </div>
+  </div>
+</div>
