@@ -1,0 +1,97 @@
+<div class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-md-12">
+      <p>You currently have {{ cartInfo.itemCount }} items(s) in cart.</p>
+    </div>
+
+    <div id="basket" class="col-md-9">
+      <div class="box">
+        <form>
+          <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th colspan="2">Product</th>
+                        <th>Quantity</th>
+                        <th>Unit price</th>
+                        <th>Unit weight</th>
+                        <th colspan="2">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in cartInfo.items">
+                        <td>
+                            <a href="#">
+                                <!-- <img ng-src="{{ item.image }}" alt="picture"> -->
+                            </a>
+                        </td>
+                        <td><a href="#">{{ item.name }}</a>
+                        </td>
+                        <td>
+                            <input type="number" ng-model="item.quantity">
+                        </td>
+                        <td>Rs.{{ item.price }}</td>
+                        <td>{{ item.weight }}</td>
+                        <td>Rs.{{ item.price * item.quantity }}</td>
+                        <td><a ng-click="deleteItem(item)"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4">Total</th>
+                        <th>{{ cartInfo.totalWeight | number:2 }}</th>
+                        <th colspan="2">{{ cartInfo.total | currency}}</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="box-footer">
+            <div class="pull-left">
+                <a ng-href="products" class="btn btn-default">Continue Shopping</a>
+            </div>
+            <div class="pull-right">
+                <button ng-click="updateCart()" class="btn btn-default">Update Cart</button>
+                <a ng-click="updateCart();toCheckout()" class="btn btn-default">Proceed to Checkout</a>
+            </div>
+        </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div id="order-summary" class="box">
+        <div class="box-header">
+            <h3>Order summary</h3>
+        </div>
+        <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+
+        <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Order subtotal</td>
+                        <th>{{ cartInfo.total | currency }}</th>
+                    </tr>
+                    <tr>
+                        <td>Shipping and handling</td>
+                        <th>Rs.0</th>
+                    </tr>
+                    <tr>
+                        <td>Tax</td>
+                        <th>Rs.0</th>
+                    </tr>
+                    <tr class="total">
+                        <td>Total</td>
+                        <th>{{ cartInfo.total | currency }}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
